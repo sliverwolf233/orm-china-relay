@@ -37,7 +37,7 @@ jobs:
           - mode: rail
             tag: data-rail-latest
             ways: "w/railway=rail"
-            nodes: "n/railway=station n/railway=halt -n/subway=yes"
+            nodes: "n/railway=station n/railway=halt"
             name: china-rail-latest.osm.pbf
     steps:
       - name: Install osmium-tool
