@@ -36,8 +36,10 @@ jobs:
       - name: Filter railway features
         run: |
           set -euo pipefail
+          # keep in sync with scripts/filter_railway.py (test asserts both)
           osmium tags-filter china-latest.osm.pbf \
-            w/railway=rail n/railway=station n/railway=halt \
+            w/railway=rail w/railway=subway w/railway=tram w/railway=light_rail \
+            n/railway=station n/railway=halt n/railway=tram_stop \
             -o china-rail-latest.osm.pbf --overwrite
           osmium fileinfo -e china-rail-latest.osm.pbf | tee fileinfo.txt
           ls -l china-rail-latest.osm.pbf
